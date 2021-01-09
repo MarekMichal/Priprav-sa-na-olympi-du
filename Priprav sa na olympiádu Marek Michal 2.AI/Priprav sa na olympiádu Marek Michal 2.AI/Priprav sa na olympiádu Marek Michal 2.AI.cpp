@@ -53,9 +53,9 @@ void staty(int hodiny, int sila, int peniaze, int unava, int hlad, int vstupenka
     oddelovac2();
 }*/
 
-double hodOponentaNezaokruhlene(double min, double max)
+float nahodneCislo(float min, float max)
 {
-return ((double)rand() / RAND_MAX) * (max - min) + min;
+return ((float)rand() / RAND_MAX) * (max - min) + min;
 }
 
 int main()
@@ -65,21 +65,26 @@ int main()
     int hra = 0;
     int vyber = 0;
     int hodiny = 744;
-    int sila = 0;
+    int sila = 0;  
+    int silaOponenta = 0;
     int peniaze = 100;
     int unava = 0;
     int hlad = 0;
     int Domov = 1;
     int kupa = 0;
     int vstupenka = 0;
-    int poradie = 0;
-    double hodOponentaZaokruhlene = 0;
+    int poradie = 0;    
     int oponenti = 0;    
-    int dialka = 0;
+    float dialka = 0;
     int silahodu = 0;
-    int vietor = 0;
+    float minVietor = 0;
+    float maxVietor = 0;
+    float vietor = 0;
     int uholhodu = 0;
-    int vahagule = 0;
+    int uholhoduOponenta = 0;
+    float minVahagule = 0;
+    float vahagule = 0;
+    float maxVahagule = 0;
     oddelovac4();
     cout << "Priprav sa na olympyadu!" << endl << endl;
     cout << "START" << endl << "ODIST" << endl << endl << "stlac 1 aby si zacal" << endl << "stlac hocico ine aby si odisiel" << endl;
@@ -144,6 +149,7 @@ int main()
                 oddelovac5();
                 hodiny = 0;
                 vstupenka = 1;
+                sila = 70;
                 break;
             case 1://PRACA// 
                 if (hodiny < 10)
@@ -406,15 +412,69 @@ int main()
             cin >> poradie;
             oddelovac1();
             srand(time(NULL));
+            minVahagule = nahodneCislo(1, 3);
+            minVahagule *= 100;
+            minVahagule = round(minVahagule) / 100;
+            maxVahagule = minVahagule + 0.5 ;
+            vahagule = nahodneCislo(minVahagule, maxVahagule);
+            vahagule *= 100;
+            vahagule = round(vahagule) / 100;//vaha gule
+            minVietor = nahodneCislo(0,10);
+            minVietor *= 10;
+            minVietor = round(minVietor) / 10;
+            maxVietor = 5 + minVietor;
+            vietor = nahodneCislo(minVietor, maxVietor);
+            vietor *= 10;
+            vietor = round(vietor) / 10;// sila vetra
+
             for (oponenti = 1; oponenti <= 10; oponenti++)
             {
                 if (oponenti == poradie)
                 {
+                    oddelovac3();
+                    cout << "Teraz, ked si na rade s hadzanim si ideme vysvetlit ako sa hadze:" << endl
+                        << "Ako uz bolo spomenute, musis odhadnut niektore informacie. Ako prve musime vediet aky si silny." << endl;
+                    system("pause");
+                        cout << sila << " %" << endl;
+                    oddelovac3();
+                    system("pause");                    
+                    oddelovac3();
+                    cout << "Fajn, teraz potrebujeme zistit vahu gule. Cim tazsia gula tym nizsie vyleti" << endl
+                        << "(nepytaj sa ci to tak funguje aj v realite. Toto je herna realita tak sa stym zmier. :)  )" << endl
+                        << "Nie si vsak robot a nevies zistit vahu gule presne, len priblizne." << endl
+                        << "Dam ti len nahodne rozpatie kolko moze priblizne ta gula vazit." << endl;
+                        cout << "Vsetci hadzu rovnakou gulou." << endl;                    
+                    cout << minVahagule << " - " << maxVahagule << " kg" << endl;
+                    oddelovac3();
+                    system("pause");
+                    oddelovac3();
+                    cout << "Dalej potrebujeme zistit silu vetra. Cim silnejsi vietor tym menej dohodis." << endl
+                        << "Dalej to je uz rovnake ako s vahou gule:" << endl;
+                    cout << minVietor << " - " << maxVietor << " m/s" << endl;
+                    oddelovac3();
+                    system("pause");
+                    oddelovac3();
+                    cout << "Teraz sa musis rozhodnut pod akym uhlom budes hadzat." << endl
+                        << "Rozhoduj poriadne lebo ked to zadas, tak zacnes hned hadzat" << endl
+                        << "Mozes si vybrat v rozpati od 10 do 80 stupnoveho uhla." << endl;
+                    cin >> uholhodu;
+                    oddelovac3();
+                    dialka = (sila / vietor) * (uholhodu / (vahagule * 10));
+                    dialka *= 100;
+                    dialka = round(dialka) / 100;
+                    cout << "Tvoj hod:" << dialka << " m" << endl;
                     continue;
                 } 
-                hodOponentaZaokruhlene = hodOponentaNezaokruhlene(3, 10);
-                hodOponentaZaokruhlene *= 100;
-                cout << "Hrac cislo " << oponenti << ": " << (round(hodOponentaZaokruhlene)) / 100 << " m" << endl;
+                silaOponenta = nahodneCislo(1, 100);                
+                round(silaOponenta);
+                silaOponenta;
+                uholhoduOponenta = nahodneCislo(10, 80);                
+                round(uholhoduOponenta);
+                uholhoduOponenta;
+                dialka = (silaOponenta / vietor) * (uholhoduOponenta / (vahagule * 10));
+                dialka *= 100;
+                dialka = round(dialka) / 100;
+                cout << "Hrac cislo " << oponenti << ": " << dialka << " m" << endl;
             }
             break;
         }        
