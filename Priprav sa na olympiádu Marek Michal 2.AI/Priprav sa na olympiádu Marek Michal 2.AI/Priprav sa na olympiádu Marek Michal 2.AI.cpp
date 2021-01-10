@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cmath>
 #include <ctime>
@@ -30,6 +29,8 @@ void oddelovac5()
     cout << "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << endl << endl;
 }
 
+
+
 void staty(int hodiny, int sila, int peniaze, int unava, int hlad, int vstupenka)
 {//staty
     oddelovac2();
@@ -43,19 +44,9 @@ void staty(int hodiny, int sila, int peniaze, int unava, int hlad, int vstupenka
     oddelovac2();
 }
 
-/*void staty2(int vietor, int uholhodu, int vahagule, int silahodu)
-{//staty na olympiadu
-    oddelovac2();
-    cout << "Vaha gule:" << vietor << endl;
-    cout << "Uhol hodu:" << uholhodu << endl;
-    cout << "Sila hodu:" << silahodu << endl;
-    cout << "Vietor:" << vietor << endl;
-    oddelovac2();
-}*/
-
 float nahodneCislo(float min, float max)
 {
-return ((float)rand() / RAND_MAX) * (max - min) + min;
+    return ((float)rand() / RAND_MAX) * (max - min) + min;
 }
 
 int main()
@@ -63,37 +54,136 @@ int main()
     cout << "ODPORUCAM HRAT NA FULLSCREEN" << endl;
     bool prehra = false;
     int hra = 0;
+    int vyberObtiaznost = 0;
+    int hodinyPraca = 0, peniazePraca = 0, unavaPraca = 0, hladPraca = 0;
+    int hodinyTrening = 0, peniazeTrening = 0, unavaTrening = 0, hladTrening = 0;
+    int hodinySpanok = 0, unavaSpanok = 0, hladSpanok = 0;
+    int peniazeCukriky = 0, unavaCukriky = 0, hladCukriky = 0;
+    int peniazeGulas = 0, hladGulas = 0;
+    int peniazeEnergetak = 0, unavaEnergetak = 0;
+    int peniazeZosilovace = 0, silaZosilovace = 0;
+    int peniazeSupergulas = 0, silaSupergulas = 0;
+    int peniazeVstupenka = 0;
     int vyber = 0;
-    int hodiny = 744;
-    int sila = 0;  
+    int hodiny = 744, sila = 0, peniaze = 100, unava = 0, hlad = 0, vstupenka = 0;
     int silaOponenta = 0;
-    int peniaze = 100;
-    int unava = 0;
-    int hlad = 0;
     int Domov = 1;
     int kupa = 0;
-    int vstupenka = 0;
     int poradie = 0;    
     int oponenti = 0;    
     float dialka = 0;
     int silahodu = 0;
-    float minVietor = 0;
-    float maxVietor = 0;
-    float vietor = 0;
-    int uholhodu = 0;
-    int uholhoduOponenta = 0;
-    float minVahagule = 0;
-    float vahagule = 0;
-    float maxVahagule = 0;
+    float minVietor = 0, maxVietor = 0, vietor = 0;
+    int uholhodu = 0, uholhoduOponenta = 0;
+    float minVahagule = 0, vahagule = 0, maxVahagule = 0;
     oddelovac4();
     cout << "Priprav sa na olympyadu!" << endl << endl;
     cout << "START" << endl << "ODIST" << endl << endl << "stlac 1 aby si zacal" << endl << "stlac hocico ine aby si odisiel" << endl;
-    oddelovac4();
+    oddelovac4();    
     oddelovac1();
     cin >> hra;
     oddelovac1();
     if (hra == 1)
     {
+        oddelovac4();
+        cout << "Vyber si obtiaznost:" << endl << "LAHKA: 1" << endl << "STREDNA: 2" << endl << "TAZKA: 3" << endl;
+        oddelovac4();
+        oddelovac1();
+        cin >> vyberObtiaznost;
+        oddelovac1();
+        switch (vyberObtiaznost)
+        {
+        default:
+            oddelovac5();
+            cout << "Vyberaj len cisla 1,2,3,4! " << endl;
+            oddelovac5();
+            break;
+           /*vyberObtiaznost, hodinyPraca, peniazePraca, unavaPraca, hladPraca,
+                hodinyTrening, peniazeTrening, unavaTrening, hladTrening,
+                hodinySpanok, unavaSpanok, hladSpanok,
+                peniazeCukriky, unavaCukriky, hladCukriky,
+                peniazeGulas, hladGulas,
+                peniazeEnergetak, unavaEnergetak,
+                peniazeZosilovace, silaZosilovace,
+                peniazeSupergulas, silaSupergulas,
+                peniazeVstupenka = */
+        case 1://LAHKA    
+            hodinyPraca = 5;
+            peniazePraca = 500;
+            unavaPraca = 10;
+            hladPraca = 10;
+            hodinyTrening = 2;
+            peniazeTrening = 50;
+            unavaTrening = 10;
+            hladTrening = 10;
+            hodinySpanok = 6;
+            unavaSpanok = 70;
+            hladSpanok = 30;
+            peniazeCukriky = 2;
+            unavaCukriky = 30;
+            hladCukriky = 20;
+            peniazeGulas = 10;
+            hladGulas = 40;
+            peniazeEnergetak = 3;
+            unavaEnergetak = 30;
+            peniazeZosilovace = 200;
+            silaZosilovace = 10;
+            peniazeSupergulas = 500;
+            silaSupergulas = 12;
+            peniazeVstupenka = 1000;
+            break;
+        case 2://STREDNA 
+            hodinyPraca = 8;
+            peniazePraca = 250;
+            unavaPraca = 20;
+            hladPraca = 30;
+            hodinyTrening = 5;
+            peniazeTrening = 200;
+            unavaTrening = 40;
+            hladTrening = 25;
+            hodinySpanok = 8;
+            unavaSpanok = 50;
+            hladSpanok = 50;
+            peniazeCukriky = 5;
+            unavaCukriky = 20;
+            hladCukriky = 10;
+            peniazeGulas = 20;
+            hladGulas = 30;
+            peniazeEnergetak = 6;
+            unavaEnergetak = 20;
+            peniazeZosilovace = 350;
+            silaZosilovace = 7;
+            peniazeSupergulas = 1000;
+            silaSupergulas = 9;
+            peniazeVstupenka = 2000;
+            break;
+        case 3://TAZKA            
+            hodinyPraca = 12;
+            peniazePraca = 100;
+            unavaPraca = 40;
+            hladPraca = 50;
+            hodinyTrening = 10;
+            peniazeTrening = 500;
+            unavaTrening = 60;
+            hladTrening = 40;
+            hodinySpanok = 10;
+            unavaSpanok = 30;
+            hladSpanok = 70;
+            peniazeCukriky = 10;
+            unavaCukriky = 10;
+            hladCukriky = 5;
+            peniazeGulas = 30;
+            hladGulas = 20;
+            peniazeEnergetak = 10;
+            unavaEnergetak = 15;
+            peniazeZosilovace = 650;
+            silaZosilovace = 4;
+            peniazeSupergulas = 1500;
+            silaSupergulas = 5;
+            peniazeVstupenka = 3500;
+            break;
+        }
+
         oddelovac3();
         cout << "Vitaj v hre!" << endl;
     }
@@ -125,12 +215,26 @@ int main()
             staty(hodiny, sila, peniaze, unava, hlad, vstupenka);
             oddelovac4();
             cout << "Chces ist do prace na trening alebo spat?" << endl << endl;
-            cout << "PRACA: stlac 1" << endl << "-10 hodin" << endl << "+200 EUR" << endl << "+10% unavy" << endl << "+40% hladu" << endl;
-            cout << "Uberie sa ti 10 hodin z casu, zarobis si 200 EUR, unavis sa na dalsich 10% a vyhladnes o 40%" << endl << endl;
-            cout << "TRENING: stlac 2" << endl << "-5 hodin" << endl << "-50 EUR" << endl << "+10% unavy" << endl << "+20% hladu" << endl;
-            cout << "Uberie sa ti 5 hodin z casu, minies 50 EUR, unavis sa na dalsich 10% a vyhladnes o 20%" << endl << endl;
-            cout << "SPANOK: stlac 3" << endl << "-7 hodin" << endl << "-50% unavy" << endl << "+50% hladu" << endl;
-            cout << "Uberie sa ti 7 hodin casu, unava sa ti znizi o 50% a vyhladnes o 50%" << endl << endl;
+            cout << "PRACA: stlac 1" << endl
+                << "- " << hodinyPraca <<" hodin" << endl
+                << "+ " << peniazePraca << " EUR" << endl 
+                << "+ " << unavaPraca << " unavy" << endl
+                << "+ " << hladPraca << " hladu" << endl;
+            cout << "Uberie sa ti " << hodinyPraca << " hodin z casu, zarobis si " << peniazePraca
+                << " EUR, unavis sa na dalsich " << unavaPraca << " % a vyhladnes o " << hladPraca << " %" << endl << endl;
+            cout << "TRENING: stlac 2" << endl 
+                << "- " << hodinyTrening << " hodin" << endl
+                << "- " << peniazeTrening << " EUR" << endl
+                << "+ "<< unavaTrening << " % unavy" << endl
+                << "+ " << hladTrening << " % hladu" << endl;
+            cout << "Uberie sa ti " << hodinyTrening << " hodin z casu, minies " << peniazeTrening
+                << " EUR, unavis sa na dalsich " << unavaTrening << " % a vyhladnes o " << hladTrening << " %" << endl << endl;
+            cout << "SPANOK: stlac 3" << endl 
+                << "- " << hodinySpanok << " hodin" << endl 
+                << "- " << unavaSpanok << " % unavy" << endl
+                << "+ " << hladSpanok << " % hladu" << endl;
+            cout << "Uberie sa ti " << hodinySpanok << " hodin casu, unava sa ti znizi o " << unavaSpanok 
+                << " % a vyhladnes o " << hladSpanok << " %" << endl << endl;
             cout << "OBCHOD: stlac 4" << endl;
             oddelovac4();
             oddelovac1();
@@ -143,105 +247,93 @@ int main()
                 cout << "Vyberaj len cisla 1,2,3,4! " << endl;
                 oddelovac5();
                 break;
-            case 5: //CHEATCODE
-                oddelovac5();
-                cout << "Cas ti vyprsal!" << endl;
-                oddelovac5();
+            case 5: //CHEATCODE                
                 hodiny = 0;
                 vstupenka = 1;
                 sila = 70;
                 break;
             case 1://PRACA// 
-                if (hodiny < 10)
+                if (hodiny < 0)
                 {
-                    hodiny = 0;
-                    oddelovac5();
-                    cout << "Cas ti vyprsal!" << endl;
-                    oddelovac5();
+                    hodiny = 0;                   
                 }
-                if (unava >= 91)
+                if (unava > unavaPraca)
                 {
                     oddelovac5();
                     cout << "Si moc unaveny!" << endl << "Chod spat alebo kup nieco proti unave v obchode" << endl;
                     oddelovac5();
                     break;
                 }
-                if (hlad >= 81)
+                if (hlad > hladPraca)
                 {
                     oddelovac5();
                     cout << "Si moc hladny!" << endl << "Kup si jedlo" << endl;
                     oddelovac5();
                     break;
                 }
-                hodiny = hodiny - 10;
-                peniaze = peniaze + 200;
-                unava = unava + 10;
-                hlad = hlad + 20;
+                hodiny = hodiny - hodinyPraca;
+                peniaze = peniaze + peniazePraca;
+                unava = unava + unavaPraca;
+                hlad = hlad + hladPraca;
                 break;
-            case 2://TRENING// 
-                if (hodiny < 1)
-                {
-                    hodiny = 0;
-                    oddelovac5();
-                    cout << "Cas ti vyprsal!" << endl;
-                    oddelovac5();
-                }
-                if (peniaze <= 50)
+            case 2://TRENING//                 
+                if (peniaze < peniazeTrening)
                 {
                     oddelovac5();
                     cout << "Nemas dostatok penazi!" << endl << "Chod do prace aby si ziskal peniaze." << endl;
                     oddelovac5();
                     break;
                 }
-                if (unava >= 91)
+                if (unava > 100 - unavaTrening)
                 {
                     oddelovac5();
                     cout << "Si moc unaveny!" << endl << "Chod spat alebo kup nieco proti unave v obchode." << endl;
                     oddelovac5();
                     break;
                 }
-                if (hlad >= 61)
+                if (hlad > 100 - hladTrening)
                 {
                     oddelovac5();
                     cout << "Si moc hladny!" << endl << "Kup si jedlo" << endl;
                     oddelovac5();
                     break;
                 }
-                hodiny = hodiny - 5;
-                peniaze = peniaze - 50;
-                sila = sila + 1;
-                unava = unava + 10;
-                hlad = hlad + 40;
-                break;
-            case 3://POSTEL//               
-                if (hodiny < 1)
+                hodiny = hodiny - hodinyTrening;
+                if (hodiny < 0)
                 {
                     hodiny = 0;
-                    oddelovac5();
-                    cout << "Cas ti vyprsal!" << endl;
-                    oddelovac5();
                 }
-                if (unava < 10)
+                peniaze = peniaze - peniazeTrening;
+                sila = sila + 1;
+                unava = unava + unavaTrening;
+                hlad = hlad + hladTrening;
+                break;
+            case 3://POSTEL//                
+                if (unava < unavaSpanok/2)
                 {
                     oddelovac5();
                     cout << "Nie si unaveny!" << endl << "Chod nieco robit! " << endl;
                     oddelovac5();
                     break;
                 }
-                if (unava < 50)
+                hodiny = hodiny - hodinySpanok;               
+                if (hodiny < 0)
+                {
+                    hodiny = 0;
+                }
+                unava = unava - unavaSpanok;
+                if (unava < unavaSpanok)
                 {
                     unava = 0;
                 }
-                if (hlad > 50)
+                hlad = hlad + hladSpanok;
+                if (hlad > 100 - hladSpanok)
                 {
-                    oddelovac5();
-                    cout << "Si moc hladny!" << endl << "Kup si jedlo" << endl;
-                    oddelovac5();
-                    break;
+                    hlad = 100;
                 }
-                hodiny = hodiny - 7;
-                unava = unava - 50;
-                hlad = hlad + 50;
+                
+                
+                
                 break;
             case 4://OBCHOD//
                 if (peniaze < 5)
@@ -290,24 +382,22 @@ int main()
                         oddelovac5();
                     case 0:
                         break;
-                    case 1:
-                        hlad = hlad - 5;
+                    case 1://CUKRIKY
                         if (hlad < 0)
                         {
                             hlad = 0;
-                        }
-                        unava = unava - 5;
-                        if (unava <= 4)
+                        }      
+                        unava = unava - unavaCukriky;                  
+                        if (unava < 0)
                         {
-                            oddelovac5();
-                            cout << "Nie si unaveny!" << endl << "Chod nieco robit! " << endl;
-                            oddelovac5();
-                            break;
+                            unava = 0;                           
                         }
-                        peniaze = peniaze - 5;
+                        
+                        hlad = hlad - hladCukriky;
+                        peniaze = peniaze - peniazeCukriky;
                         break;
-                    case 2:
-                        if (peniaze < 20)
+                    case 2://GULAS
+                        if (peniaze < peniazeGulas)
                         {
                             oddelovac5();
                             cout << "Nemas dostatok penazi!" << endl << "Chod do prace aby si ziskal peniaze." << endl;
@@ -318,44 +408,38 @@ int main()
                         {
                             hlad = 0;
                         }
-                        peniaze = peniaze - 20;
-                        hlad = hlad - 50;
+                        peniaze = peniaze - peniazeGulas;
+                        hlad = hlad - hladGulas;
                         break;
-                    case 3:
-                        if (peniaze < 5)
+                    case 3://ENERGETAK
+                        if (peniaze < peniazeEnergetak)
                         {
                             oddelovac5();
                             cout << "Nemas dostatok penazi!" << endl << "Chod do prace aby si ziskal peniaze." << endl;
                             oddelovac5();
                             break;
                         }
-                        if (unava < 30)
+                        if (unava < 0)
                         {
-                            oddelovac5();
-                            cout << "Nie si unaveny!" << endl << "Chod nieco robit! " << endl;
-                            oddelovac5();
+                            unava = 0;
                             break;
                         }
-                        unava = unava - 30;
-                        peniaze = peniaze - 5;
+                        unava = unava - unavaEnergetak;
+                        peniaze = peniaze - peniazeEnergetak;
                         break;
-                    case 4:
-                        if (peniaze < 100)
+                    case 4://ZOSILOVACE
+                        if (peniaze < peniazeZosilovace)
                         {
                             oddelovac5();
                             cout << "Nemas dostatok penazi!" << endl << "Chod do prace aby si ziskal peniaze." << endl;
                             oddelovac5();
                             break;
-                        }
-                        if (hlad < 0)
-                        {
-                            hlad = 0;
-                        }
-                        hlad = hlad - 50;
-                        peniaze = peniaze - 100;
+                        }                        
+                        sila = sila - silaZosilovace;
+                        peniaze = peniaze - peniazeZosilovace;
                         break;
-                    case 5:
-                        if (peniaze < 1000)
+                    case 5://SUPERGULAS
+                        if (peniaze < peniazeSupergulas)
                         {
                             oddelovac5();
                             cout << "Nemas dostatok penazi!" << endl << "Chod do prace aby si ziskal peniaze." << endl;
@@ -364,10 +448,10 @@ int main()
                         }
                         hlad = 0;
                         unava = 0;
-                        sila = sila + 30;
-                        peniaze = peniaze - 1000;
+                        sila = sila + silaSupergulas;
+                        peniaze = peniaze - peniazeSupergulas;
                         break;
-                    case 6:
+                    case 6://VSTUPENKA
                         if (vstupenka == 1)
                         {
                             oddelovac5();
@@ -375,17 +459,32 @@ int main()
                             oddelovac5();
                             break;
                         }
-                        if (peniaze < 2000)
+                        if (peniaze < peniazeVstupenka)
                         {
+                            oddelovac5();
+                            cout << "Nemas dostatok penazi!" << endl << "Chod do prace aby si ziskal peniaze." << endl;
+                            oddelovac5();                            
                             break;
                         }
                         vstupenka = 1;
-                        peniaze = peniaze - 2000;
+                        peniaze = peniaze - peniazeVstupenka;
                     }
                 }
             }
         }
         while (hodiny > 0);
+        if (vyber == 5)
+        {
+        oddelovac5();
+        cout << "Cas ti vyprsal cheater!" << endl;
+        oddelovac5();
+        }
+        else
+        {        
+        oddelovac5();
+        cout << "Cas ti vyprsal!" << endl;
+        oddelovac5();
+        }
         if (vstupenka == 0)
         {
             oddelovac5();
